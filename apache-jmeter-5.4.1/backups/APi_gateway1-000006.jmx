@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">20</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">200</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">60</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">3600</stringProp>
+        <stringProp name="ThreadGroup.delay">3</stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Token" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">15.207.231.230</stringProp>
+          <stringProp name="HTTPSampler.port">894</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">machineaggregator/api/Terminal/GetToken?t=000512193403685&amp;version=2</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Config" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">15.207.231.230</stringProp>
+          <stringProp name="HTTPSampler.port">894</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/machineaggregator/api/Terminal/Config?t=000512193403685&amp;p=1&amp;version=2</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AdXZtdmVuZGltYW4uY29tIiwiVXNlck5hbWUiOiJWZW5kaW1hbiIsIk9wZXJhdG9ySWQiOiIxIiwiVXNlcklkIjoiMSIsIk9wZXJhdGlvbkxvY2F0aW9uSWRzIjoiQWxsIiwiQ3VzdG9tZXJMb2NhdGlvbklkcyI6IjAiLCJSb2xlTmFtZXMiOiJTdXBlckFkbWluIiwiT3BlcmF0b3JOYW1lIjoiVmVuZGltYW4iLCJBbGwiOiJBbGwiLCJleHAiOjE2MTU2MjY4OTgsImlzcyI6IkxMTSBWTVMgSWRlbnRpdHkgQVBJIiwiYXVkIjoiTExNIFZNUyAgVUkifQ.w32xB5ixdCau7WA2XOz97OqW1wecpWtjYO61GKp4k7o</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Psp List" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">15.207.231.230</stringProp>
+          <stringProp name="HTTPSampler.port">894</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/machineaggregator/api/Terminal/PSPList?t=000512193403685&amp;version=2</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AdXZtdmVuZGltYW4uY29tIiwiVXNlck5hbWUiOiJWZW5kaW1hbiIsIk9wZXJhdG9ySWQiOiIxIiwiVXNlcklkIjoiMSIsIk9wZXJhdGlvbkxvY2F0aW9uSWRzIjoiQWxsIiwiQ3VzdG9tZXJMb2NhdGlvbklkcyI6IjAiLCJSb2xlTmFtZXMiOiJTdXBlckFkbWluIiwiT3BlcmF0b3JOYW1lIjoiVmVuZGltYW4iLCJBbGwiOiJBbGwiLCJleHAiOjE2MTU2MjY4OTgsImlzcyI6IkxMTSBWTVMgSWRlbnRpdHkgQVBJIiwiYXVkIjoiTExNIFZNUyAgVUkifQ.w32xB5ixdCau7WA2XOz97OqW1wecpWtjYO61GKp4k7o</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Check Status" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;posId&quot;: &quot;000512193403561&quot;,&#xd;
+  &quot;appId&quot;: &quot;${appid}&quot;,&#xd;
+  &quot;pspId&quot;: &quot;Phonepe&quot;,&#xd;
+  &quot;txnId&quot;: &quot;gBl5fMzAEwUMcs5n&quot;,&#xd;
+  &quot;amount&quot;: &quot;20&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">15.207.231.230</stringProp>
+          <stringProp name="HTTPSampler.port">894</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/machineaggregator/api/Terminal/CheckStatus?version=2</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AdXZtdmVuZGltYW4uY29tIiwiVXNlck5hbWUiOiJWZW5kaW1hbiIsIk9wZXJhdG9ySWQiOiIxIiwiVXNlcklkIjoiMSIsIk9wZXJhdGlvbkxvY2F0aW9uSWRzIjoiQWxsIiwiQ3VzdG9tZXJMb2NhdGlvbklkcyI6IjAiLCJSb2xlTmFtZXMiOiJTdXBlckFkbWluIiwiT3BlcmF0b3JOYW1lIjoiVmVuZGltYW4iLCJBbGwiOiJBbGwiLCJleHAiOjE2MTU2MjY4OTgsImlzcyI6IkxMTSBWTVMgSWRlbnRpdHkgQVBJIiwiYXVkIjoiTExNIFZNUyAgVUkifQ.w32xB5ixdCau7WA2XOz97OqW1wecpWtjYO61GKp4k7o</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Events New" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;tid&quot;: &quot;000512174600840&quot;,&#xd;
+  &quot;machine&quot;: 11,&#xd;
+  &quot;code&quot;: 1,&#xd;
+  &quot;msg&quot;: &quot;1|1|0|0|0|0|0|17|0|0&quot;,&#xd;
+  &quot;timestamp&quot;: &quot;2019-06-18 14:35:00&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">15.207.231.230</stringProp>
+          <stringProp name="HTTPSampler.port">894</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/machineaggregator/api/Terminal/EventsNew?version=2</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AdXZtdmVuZGltYW4uY29tIiwiVXNlck5hbWUiOiJWZW5kaW1hbiIsIk9wZXJhdG9ySWQiOiIxIiwiVXNlcklkIjoiMSIsIk9wZXJhdGlvbkxvY2F0aW9uSWRzIjoiQWxsIiwiQ3VzdG9tZXJMb2NhdGlvbklkcyI6IjAiLCJSb2xlTmFtZXMiOiJTdXBlckFkbWluIiwiT3BlcmF0b3JOYW1lIjoiVmVuZGltYW4iLCJBbGwiOiJBbGwiLCJleHAiOjE2MTU2MjY4OTgsImlzcyI6IkxMTSBWTVMgSWRlbnRpdHkgQVBJIiwiYXVkIjoiTExNIFZNUyAgVUkifQ.w32xB5ixdCau7WA2XOz97OqW1wecpWtjYO61GKp4k7o</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Initiate Order" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;tid&quot;: &quot;000562190542666&quot;,&#xd;
+  &quot;msg&quot;: {&#xd;
+    &quot;qrBased&quot;: true,&#xd;
+    &quot;vendMode&quot;: 2,&#xd;
+    &quot;paymentMode&quot;: &quot;amazonpay&quot;,&#xd;
+    &quot;paymentType&quot;: &quot;0&quot;,&#xd;
+    &quot;cardNo&quot;: &quot;&quot;,&#xd;
+    &quot;date&quot;: &quot;${date}T04:44:45&quot;,&#xd;
+    &quot;appId&quot;: &quot;${appid}&quot;,&#xd;
+    &quot;paymentDescription&quot;: &quot;AmazonPay&quot;,&#xd;
+    &quot;location&quot;: &quot;12409&quot;,&#xd;
+    &quot;machine&quot;: &quot;18947&quot;,&#xd;
+    &quot;amount&quot;: 0,&#xd;
+    &quot;prepaidCardNo&quot;: &quot;null&quot;,&#xd;
+    &quot;items&quot;: [&#xd;
+      {&#xd;
+        &quot;binNo&quot;: &quot;23&quot;,&#xd;
+        &quot;lineNo&quot;: 1,&#xd;
+        &quot;price&quot;: &quot;30&quot;,&#xd;
+        &quot;status&quot;: 0,&#xd;
+        &quot;errorCode&quot;: &quot;&quot;,&#xd;
+        &quot;opCode&quot;: &quot;23&quot;&#xd;
+      }&#xd;
+    ]&#xd;
+  }&#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">15.207.231.230</stringProp>
+          <stringProp name="HTTPSampler.port">894</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/machineaggregator/api/Terminal/InitiateOrder?version=2</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AdXZtdmVuZGltYW4uY29tIiwiVXNlck5hbWUiOiJWZW5kaW1hbiIsIk9wZXJhdG9ySWQiOiIxIiwiVXNlcklkIjoiMSIsIk9wZXJhdGlvbkxvY2F0aW9uSWRzIjoiQWxsIiwiQ3VzdG9tZXJMb2NhdGlvbklkcyI6IjAiLCJSb2xlTmFtZXMiOiJTdXBlckFkbWluIiwiT3BlcmF0b3JOYW1lIjoiVmVuZGltYW4iLCJBbGwiOiJBbGwiLCJleHAiOjE2MTU2MjY4OTgsImlzcyI6IkxMTSBWTVMgSWRlbnRpdHkgQVBJIiwiYXVkIjoiTExNIFZNUyAgVUkifQ.w32xB5ixdCau7WA2XOz97OqW1wecpWtjYO61GKp4k7o</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Order" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;tid&quot;: &quot;000562190542613&quot;,&#xd;
+  &quot;msg&quot;: {&#xd;
+    &quot;vendMode&quot;: 1,&#xd;
+    &quot;paymentMode&quot;: &quot;CASH&quot;,&#xd;
+    &quot;paymentType&quot;: &quot;100&quot;,&#xd;
+    &quot;paymentRefNo&quot;: &quot;N/A&quot;,&#xd;
+    &quot;cardNo&quot;: &quot;N/A&quot;,&#xd;
+    &quot;date&quot;: &quot;${date}T04:25:49&quot;,&#xd;
+    &quot;appId&quot;: &quot;${appid}&quot;,&#xd;
+    &quot;paidAmount&quot;: &quot;0&quot;,&#xd;
+    &quot;paymentDescription&quot;: &quot;CASH&quot;,&#xd;
+    &quot;location&quot;: &quot;12302&quot;,&#xd;
+    &quot;machine&quot;: &quot;17646&quot;,&#xd;
+    &quot;machineName&quot;: &quot;Amazon, 026, WTC, 26/1, Brigade Gateway&quot;,&#xd;
+    &quot;items&quot;: [&#xd;
+      {&#xd;
+        &quot;binNo&quot;: &quot;124&quot;,&#xd;
+        &quot;lineNo&quot;: 1,&#xd;
+        &quot;price&quot;: &quot;10&quot;,&#xd;
+        &quot;status&quot;: 1,&#xd;
+        &quot;errorCode&quot;: &quot;00&quot;,&#xd;
+        &quot;opCode&quot;: &quot;124&quot;&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;paymentRemark&quot;: &quot;Payment Success&quot;,&#xd;
+    &quot;vendRemark&quot;: &quot;Vend Success&quot;,&#xd;
+    &quot;paymentStatus&quot;: 101&#xd;
+  }&#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">15.207.231.230</stringProp>
+          <stringProp name="HTTPSampler.port">894</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/machineaggregator/api/Terminal/CreateOrder?version=2</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AdXZtdmVuZGltYW4uY29tIiwiVXNlck5hbWUiOiJWZW5kaW1hbiIsIk9wZXJhdG9ySWQiOiIxIiwiVXNlcklkIjoiMSIsIk9wZXJhdGlvbkxvY2F0aW9uSWRzIjoiQWxsIiwiQ3VzdG9tZXJMb2NhdGlvbklkcyI6IjAiLCJSb2xlTmFtZXMiOiJTdXBlckFkbWluIiwiT3BlcmF0b3JOYW1lIjoiVmVuZGltYW4iLCJBbGwiOiJBbGwiLCJleHAiOjE2MTU2MjY4OTgsImlzcyI6IkxMTSBWTVMgSWRlbnRpdHkgQVBJIiwiYXVkIjoiTExNIFZNUyAgVUkifQ.w32xB5ixdCau7WA2XOz97OqW1wecpWtjYO61GKp4k7o</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Finalize Order" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;tid&quot;: &quot;000562190542632&quot;,&#xd;
+  &quot;vendMode&quot;: 2,&#xd;
+  &quot;vendStatus&quot;: 1,&#xd;
+  &quot;paymentRefNo&quot;: &quot;RRGDAxNDYPWVDXpr&quot;,&#xd;
+  &quot;appId&quot;: &quot;${appid}&quot;,&#xd;
+  &quot;paymentDescription&quot;: &quot;AmazonPay&quot;,&#xd;
+  &quot;paymentStatus&quot;: 101,&#xd;
+  &quot;paymentRemark&quot;: &quot;Payment Done&quot;,&#xd;
+  &quot;vendRemark&quot;: &quot;Payment Sucess&quot;,&#xd;
+  &quot;items&quot;: [&#xd;
+    {&#xd;
+      &quot;binNo&quot;: &quot;124&quot;,&#xd;
+      &quot;lineNo&quot;: 1,&#xd;
+      &quot;price&quot;: &quot;10&quot;,&#xd;
+      &quot;status&quot;: 1,&#xd;
+      &quot;errorCode&quot;: &quot;N/A&quot;,&#xd;
+      &quot;opCode&quot;: &quot;124&quot;&#xd;
+    }&#xd;
+  ]&#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">15.207.231.230</stringProp>
+          <stringProp name="HTTPSampler.port">894</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/machineaggregator/api/Terminal/Finalize?version=2</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AdXZtdmVuZGltYW4uY29tIiwiVXNlck5hbWUiOiJWZW5kaW1hbiIsIk9wZXJhdG9ySWQiOiIxIiwiVXNlcklkIjoiMSIsIk9wZXJhdGlvbkxvY2F0aW9uSWRzIjoiQWxsIiwiQ3VzdG9tZXJMb2NhdGlvbklkcyI6IjAiLCJSb2xlTmFtZXMiOiJTdXBlckFkbWluIiwiT3BlcmF0b3JOYW1lIjoiVmVuZGltYW4iLCJBbGwiOiJBbGwiLCJleHAiOjE2MTU2MjY4OTgsImlzcyI6IkxMTSBWTVMgSWRlbnRpdHkgQVBJIiwiYXVkIjoiTExNIFZNUyAgVUkifQ.w32xB5ixdCau7WA2XOz97OqW1wecpWtjYO61GKp4k7o</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Failed Order" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;tid&quot;: &quot;000562190542574&quot;,&#xd;
+  &quot;msg&quot;: {&#xd;
+    &quot;vendMode&quot;: 2,&#xd;
+    &quot;paymentMode&quot;: &quot;phonepe&quot;,&#xd;
+    &quot;paymentType&quot;: &quot;0&quot;,&#xd;
+    &quot;paymentRefNo&quot;: &quot;N/A&quot;,&#xd;
+    &quot;cardNo&quot;: &quot;N/A&quot;,&#xd;
+    &quot;date&quot;: &quot;${date}T16:44:45&quot;,&#xd;
+    &quot;appId&quot;: &quot;000562190542574470587&quot;,&#xd;
+    &quot;paidAmount&quot;: &quot;0&quot;,&#xd;
+    &quot;paymentDescription&quot;: &quot;Phonepe&quot;,&#xd;
+    &quot;location&quot;: &quot;12283&quot;,&#xd;
+    &quot;machine&quot;: &quot;17621&quot;,&#xd;
+    &quot;machineName&quot;: &quot;Vendiman Ho Seaga Demo&quot;,&#xd;
+    &quot;items&quot;: [&#xd;
+      {&#xd;
+        &quot;binNo&quot;: &quot;N/A&quot;,&#xd;
+        &quot;lineNo&quot;: 1,&#xd;
+        &quot;price&quot;: &quot;0&quot;,&#xd;
+        &quot;status&quot;: 1,&#xd;
+        &quot;errorCode&quot;: &quot;N/A&quot;,&#xd;
+        &quot;opCode&quot;: &quot;N/A&quot;&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;paymentRemark&quot;: &quot;Payment Not Initiated&quot;,&#xd;
+    &quot;vendRemark&quot;: &quot;Product Not selected&quot;,&#xd;
+    &quot;paymentStatus&quot;: 101&#xd;
+  }&#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">15.207.231.230</stringProp>
+          <stringProp name="HTTPSampler.port">894</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/machineaggregator/api/Terminal/FailedOrder?version=2</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AdXZtdmVuZGltYW4uY29tIiwiVXNlck5hbWUiOiJWZW5kaW1hbiIsIk9wZXJhdG9ySWQiOiIxIiwiVXNlcklkIjoiMSIsIk9wZXJhdGlvbkxvY2F0aW9uSWRzIjoiQWxsIiwiQ3VzdG9tZXJMb2NhdGlvbklkcyI6IjAiLCJSb2xlTmFtZXMiOiJTdXBlckFkbWluIiwiT3BlcmF0b3JOYW1lIjoiVmVuZGltYW4iLCJBbGwiOiJBbGwiLCJleHAiOjE2MTU2MjY4OTgsImlzcyI6IkxMTSBWTVMgSWRlbnRpdHkgQVBJIiwiYXVkIjoiTExNIFZNUyAgVUkifQ.w32xB5ixdCau7WA2XOz97OqW1wecpWtjYO61GKp4k7o</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Vendrequest ack" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;tid&quot;: &quot;000512193403685&quot;,&#xd;
+  &quot;msg&quot;: {&#xd;
+    &quot;orderId&quot;: 7062358,&#xd;
+    &quot;status&quot;: 200&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">15.207.231.230</stringProp>
+          <stringProp name="HTTPSampler.port">894</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/machineaggregator/api/Terminal/VendRequestACK?version=2</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AdXZtdmVuZGltYW4uY29tIiwiVXNlck5hbWUiOiJWZW5kaW1hbiIsIk9wZXJhdG9ySWQiOiIxIiwiVXNlcklkIjoiMSIsIk9wZXJhdGlvbkxvY2F0aW9uSWRzIjoiQWxsIiwiQ3VzdG9tZXJMb2NhdGlvbklkcyI6IjAiLCJSb2xlTmFtZXMiOiJTdXBlckFkbWluIiwiT3BlcmF0b3JOYW1lIjoiVmVuZGltYW4iLCJBbGwiOiJBbGwiLCJleHAiOjE2MTUxODkyNzAsImlzcyI6IkxMTSBWTVMgSWRlbnRpdHkgQVBJIiwiYXVkIjoiTExNIFZNUyAgVUkifQ.T5ssoBHtU10AEzZM-qnJLP-hGbjUPQprc4aiJcL806Q</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Itemvendstatus" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;tid&quot;: &quot;000512193403685&quot;,&#xd;
+  &quot;msg&quot;: {&#xd;
+    &quot;orderId&quot;: 7062358,&#xd;
+    &quot;prevItem&quot;: {&#xd;
+      &quot;opCode&quot;: &quot;&quot;,&#xd;
+      &quot;status&quot;: 0&#xd;
+    },&#xd;
+    &quot;curItem&quot;: {&#xd;
+      &quot;opCode&quot;: &quot;104&quot;&#xd;
+    }&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">15.207.231.230</stringProp>
+          <stringProp name="HTTPSampler.port">894</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/machineaggregator/api/Terminal/ItemVendStatus?version=2</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AdXZtdmVuZGltYW4uY29tIiwiVXNlck5hbWUiOiJWZW5kaW1hbiIsIk9wZXJhdG9ySWQiOiIxIiwiVXNlcklkIjoiMSIsIk9wZXJhdGlvbkxvY2F0aW9uSWRzIjoiQWxsIiwiQ3VzdG9tZXJMb2NhdGlvbklkcyI6IjAiLCJSb2xlTmFtZXMiOiJTdXBlckFkbWluIiwiT3BlcmF0b3JOYW1lIjoiVmVuZGltYW4iLCJBbGwiOiJBbGwiLCJleHAiOjE2MTUxODkyNzAsImlzcyI6IkxMTSBWTVMgSWRlbnRpdHkgQVBJIiwiYXVkIjoiTExNIFZNUyAgVUkifQ.T5ssoBHtU10AEzZM-qnJLP-hGbjUPQprc4aiJcL806Q</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Order vendstatus" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;tid&quot;: &quot;000512193403685&quot;,&#xd;
+  &quot;msg&quot;: {&#xd;
+    &quot;orderId&quot;: 7062358,&#xd;
+    &quot;items&quot;: [&#xd;
+      {&#xd;
+        &quot;opCode&quot;: &quot;104&quot;,&#xd;
+        &quot;success&quot;: 1,&#xd;
+        &quot;fail&quot;: 0&#xd;
+      }&#xd;
+    ]&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">15.207.231.230</stringProp>
+          <stringProp name="HTTPSampler.port">894</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/machineaggregator/api/Terminal/OrderVendStatus?version=2</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AdXZtdmVuZGltYW4uY29tIiwiVXNlck5hbWUiOiJWZW5kaW1hbiIsIk9wZXJhdG9ySWQiOiIxIiwiVXNlcklkIjoiMSIsIk9wZXJhdGlvbkxvY2F0aW9uSWRzIjoiQWxsIiwiQ3VzdG9tZXJMb2NhdGlvbklkcyI6IjAiLCJSb2xlTmFtZXMiOiJTdXBlckFkbWluIiwiT3BlcmF0b3JOYW1lIjoiVmVuZGltYW4iLCJBbGwiOiJBbGwiLCJleHAiOjE2MTUxODkyNzAsImlzcyI6IkxMTSBWTVMgSWRlbnRpdHkgQVBJIiwiYXVkIjoiTExNIFZNUyAgVUkifQ.T5ssoBHtU10AEzZM-qnJLP-hGbjUPQprc4aiJcL806Q</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-1411064651">appid1</stringProp>
+            <stringProp name="3076014">date</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="-228313795">
+              <stringProp name="2050918012">2021-03-10-${__Random(10000,99999,)}</stringProp>
+              <stringProp name="1912637218">${__time(2021-03-11,)}</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+        </UserParameters>
+        <hashTree/>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+          <stringProp name="maximumValue">99999</stringProp>
+          <stringProp name="minimumValue">10000</stringProp>
+          <stringProp name="outputFormat">&apos;${__time(yyyy-MM-dd)}&apos; _00000</stringProp>
+          <boolProp name="perThread">true</boolProp>
+          <stringProp name="randomSeed"></stringProp>
+          <stringProp name="variableName">appid</stringProp>
+        </RandomVariableConfig>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
